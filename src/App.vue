@@ -8,40 +8,44 @@
           alt="示例图片"
       />
       <div class="overlay-text">
-        浮动的标题
+        多福楼 御茶ノ水店
       </div>
     </div>
 
     <!-- 下半部分：Tab 组件 -->
-    <el-tabs v-model:selectedTab="activeTab">
-      <el-tab-pane label="Tab 1" name="1">
-        <div>这里是 Tab 1 的内容</div>
-      </el-tab-pane>
-      <el-tab-pane label="Tab 2" name="2">
-        <div>这里是 Tab 2 的内容</div>
-      </el-tab-pane>
-      <el-tab-pane label="Tab 3" name="3">
-        <div>这里是 Tab 3 的内容</div>
-      </el-tab-pane>
-    </el-tabs>
+    <div class="tabs-wrapper">
+      <el-tabs v-model="activeTab" class="custom-tabs">
+        <el-tab-pane label="トップ" name="tab1">
+          <First/>
+        </el-tab-pane>
+        <el-tab-pane label="座席" name="tab2">
+          <div>这里是 Tab 2 的内容</div>
+        </el-tab-pane>
+        <el-tab-pane label="メニュー・コース" name="tab3">
+          <div>这里是 Tab 3 的内容</div>
+        </el-tab-pane>
+        <el-tab-pane label="写真" name="tab4">
+          <div>这里是 Tab 4 的内容</div>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import { ElTabs, ElTabPane } from 'element-plus';
-
-// Ensure to import Element Plus styles in your main.js or similar entry file:
-// import 'element-plus/dist/index.css';
+import {ref} from 'vue';
+import {ElTabs, ElTabPane} from 'element-plus';
+import First from  './page/first.vue';
 
 export default {
   components: {
     ElTabs,
-    ElTabPane
+    ElTabPane,
+    First,
   },
   setup() {
-    const activeTab = ref('1');
-    return { activeTab };
+    const activeTab = ref("tab1");
+    return {activeTab};
   },
 };
 </script>
@@ -50,7 +54,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  padding: 0 15px; /* 增加左右间隔 */
 }
 
 .image-container {
@@ -64,22 +68,57 @@ export default {
 
 .image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
 }
 
 .overlay-text {
   position: absolute;
-  bottom: 30px;
   left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
   color: white;
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
+  text-align: center; /* 文字居中 */
 }
 
-.el-tabs {
-  flex: 1;
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-tabs {
+  width: 80%; /* 将 Tabs 宽度设为页面宽度的 80% */
+}
+
+.el-tabs__nav {
+  display: flex;
+  justify-content: space-between; /* 改为 space-between */
+  width: 100%; /* 确保导航条占满可用宽度 */
+}
+
+.el-tabs__item {
+  flex: 1; /* 每个 Tab 项目均分宽度 */
+  text-align: center;
+}
+
+.custom-tabs .el-tabs__item {
+  color: brown; /* 设置未选中 Tab 的字体颜色 */
+}
+
+.custom-tabs .el-tabs__item.is-active {
+  background-color: #797152; /* 设置选中 Tab 的背景颜色 */
+  color: white; /* 设置选中 Tab 的字体颜色 */
+}
+
+.custom-tabs .el-tabs__active-bar {
+  background-color: #797152; /* 设置活动条的颜色 */
+}
+
+.el-tabs--card > .el-tabs__header {
+  border-bottom: none; /* 去掉卡片样式的底部边框 */
 }
 </style>
