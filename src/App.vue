@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import {ref} from 'vue';
+import {ElMenu, ElMenuItem, ElSubMenu} from 'element-plus';
 import First from "@/page/first.vue";
 
 export default {
@@ -83,7 +83,7 @@ export default {
       activeMenu.value = index;
     };
 
-    return { activeMenu , handleSelect };
+    return {activeMenu, handleSelect};
   },
 };
 </script>
@@ -130,12 +130,30 @@ export default {
 }
 
 .custom-menu {
+  --el-menu-active-color: #797152;
+  --el-menu-hover-text-color: #797152;
+  --el-menu-bg-color: #eeece4;
+  --el-menu-hover-bg-color: #eeece4;
+
+
   width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly; /* 替代 space-between */
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  background-color: white;
+  margin-bottom: 10px;
 }
 
-.content{
+.el-menu-item, .el-sub-menu {
+  flex: 1; /* 每个菜单项占据相同的空间 */
+  text-align: center; /* 居中对齐文本 */
+  color: #797152; /* 设置文字颜色 */
+  max-width: 200px;
+}
+
+.content {
   width: 70%;
   display: flex;
   justify-content: space-between;
