@@ -12,40 +12,78 @@
       </div>
     </div>
 
-    <!-- 下半部分：Tab 组件 -->
-    <div class="tabs-wrapper">
-      <el-tabs v-model="activeTab" class="custom-tabs">
-        <el-tab-pane label="トップ" name="tab1">
+    <!-- 下半部分：Menu 组件 -->
+    <div id="menu-container" class="menu-wrapper">
+      <el-menu
+          :default-active="activeMenu"
+          class="custom-menu"
+          mode="horizontal"
+          @select="handleSelect"
+      >
+        <el-menu-item index="1">トップ</el-menu-item>
+        <el-menu-item index="2">座席</el-menu-item>
+        <el-sub-menu index="3">
+          <template #title>メニュー・コース</template>
+          <el-menu-item index="3-1">子菜单项 1</el-menu-item>
+          <el-menu-item index="3-2">子菜单项 2</el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="4">
+          <template #title>写真</template>
+          <el-menu-item index="4-1">子菜单项 1</el-menu-item>
+          <el-menu-item index="4-2">子菜单项 2</el-menu-item>
+        </el-sub-menu>
+      </el-menu>
+
+      <!-- 内容区域 -->
+      <div class="content">
+        <div v-if="activeMenu === '1'">
           <First/>
-        </el-tab-pane>
-        <el-tab-pane label="座席" name="tab2">
-          <div>这里是 Tab 2 的内容</div>
-        </el-tab-pane>
-        <el-tab-pane label="メニュー・コース" name="tab3">
-          <div>这里是 Tab 3 的内容</div>
-        </el-tab-pane>
-        <el-tab-pane label="写真" name="tab4">
-          <div>这里是 Tab 4 的内容</div>
-        </el-tab-pane>
-      </el-tabs>
+        </div>
+        <div v-if="activeMenu === '2'">
+          <!-- 第二页面的内容 -->
+          <p>这是座席页面的内容。</p>
+        </div>
+        <div v-if="activeMenu === '3-1'">
+          <!-- 子菜单 3-1 的内容 -->
+          <p>这是子菜单项 1 的内容。</p>
+        </div>
+        <div v-if="activeMenu === '3-2'">
+          <!-- 子菜单 3-2 的内容 -->
+          <p>这是子菜单项 2 的内容。</p>
+        </div>
+        <div v-if="activeMenu === '4-1'">
+          <!-- 子菜单 4-1 的内容 -->
+          <p>这是子菜单项 1 的内容。</p>
+        </div>
+        <div v-if="activeMenu === '4-2'">
+          <!-- 子菜单 4-2 的内容 -->
+          <p>这是子菜单项 2 的内容。</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue';
-import {ElTabs, ElTabPane} from 'element-plus';
-import First from  './page/first.vue';
+import { ref } from 'vue';
+import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus';
+import First from "@/page/first.vue";
 
 export default {
   components: {
-    ElTabs,
-    ElTabPane,
     First,
+    ElMenu,
+    ElMenuItem,
+    ElSubMenu,
   },
   setup() {
-    const activeTab = ref("tab1");
-    return {activeTab};
+    const activeMenu = ref("1");
+
+    const handleSelect = (index) => {
+      activeMenu.value = index;
+    };
+
+    return { activeMenu , handleSelect };
   },
 };
 </script>
@@ -54,7 +92,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0 15px; /* 增加左右间隔 */
+  padding: 0 15px;
 }
 
 .image-container {
@@ -77,48 +115,29 @@ export default {
   left: 50%;
   bottom: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: black;
   font-size: 24px;
-  background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
-  text-align: center; /* 文字居中 */
-}
-
-.tabs-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.custom-tabs {
-  width: 80%; /* 将 Tabs 宽度设为页面宽度的 80% */
-}
-
-.el-tabs__nav {
-  display: flex;
-  justify-content: space-between; /* 改为 space-between */
-  width: 100%; /* 确保导航条占满可用宽度 */
-}
-
-.el-tabs__item {
-  flex: 1; /* 每个 Tab 项目均分宽度 */
   text-align: center;
 }
 
-.custom-tabs .el-tabs__item {
-  color: brown; /* 设置未选中 Tab 的字体颜色 */
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; /* 添加这一行 */
 }
 
-.custom-tabs .el-tabs__item.is-active {
-  background-color: #797152; /* 设置选中 Tab 的背景颜色 */
-  color: white; /* 设置选中 Tab 的字体颜色 */
+.custom-menu {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.custom-tabs .el-tabs__active-bar {
-  background-color: #797152; /* 设置活动条的颜色 */
-}
-
-.el-tabs--card > .el-tabs__header {
-  border-bottom: none; /* 去掉卡片样式的底部边框 */
+.content{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
 }
 </style>
