@@ -30,9 +30,9 @@
         <el-menu-item index="2">座席</el-menu-item>
         <el-sub-menu index="3">
           <template #title>メニュー・コース</template>
-          <el-menu-item index="3-1">料理</el-menu-item>
-          <el-menu-item index="3-2">ドリンク</el-menu-item>
-          <el-menu-item index="3-3">ランチ</el-menu-item>
+          <el-menu-item index="3-1">料理(89)</el-menu-item>
+          <el-menu-item index="3-2">ドリンク(101)</el-menu-item>
+          <el-menu-item index="3-3">ランチ(10)</el-menu-item>
         </el-sub-menu>
         <!--        <el-sub-menu index="4">-->
         <!--          <template #title>写真</template>-->

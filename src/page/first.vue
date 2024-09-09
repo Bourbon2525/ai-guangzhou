@@ -1,4 +1,8 @@
 <template>
+  <video autoplay controls class="video">
+    <source src="../assets/tab1sets/intro.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
   <hr class="divider" />
   <div class="first-container">
     <img class="large-image" src="../assets/tab1sets/mapotofu.jpg" alt="大图片" />
@@ -49,5 +53,13 @@ export default {
   color: #666;
   margin-top: 10px;
   text-align: left;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Adjust as needed */
+  display: block;
+  margin: 0 auto;
 }
 </style>

@@ -2,13 +2,13 @@
   <hr class="divider"/>
   <!-- Tabs with three options -->
   <el-tabs v-model="activeName">
-    <el-tab-pane label="料理" name="3-1">
+    <el-tab-pane label="料理(89)" name="3-1">
       <Food/>
     </el-tab-pane>
-    <el-tab-pane label="ドリンク" name="3-2">
+    <el-tab-pane label="ドリンク(101)" name="3-2">
       <Drink/>
     </el-tab-pane>
-    <el-tab-pane label="ランチ" name="3-3">
+    <el-tab-pane label="ランチ(10)" name="3-3">
       <Lunch/>
     </el-tab-pane>
   </el-tabs>
@@ -49,6 +49,9 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+.el-tabs__item {
+  padding: 12px 24px; /* Increase padding */
+  min-width: 200px;
+}
 </style>

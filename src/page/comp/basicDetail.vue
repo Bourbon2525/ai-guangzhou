@@ -27,7 +27,9 @@
       </tr>
       <tr>
         <td class="highlighted-cell">住所</td>
-        <td>東京都千代田区神田淡路町2-3-12 1F</td>
+        <td>東京都千代田区神田淡路町2-3-12 1F
+          <img alt="多福楼 御茶ノ水店 - 地図" class="js-map-lazyload rstinfo-table__map-image loaded lazy-loaded" data-original="https://maps.googleapis.com/maps/api/staticmap?channel=201000006&amp;key=AIzaSyCFZGUaDWgiusOQeFpnVLT2uPM2R6Mq7J8&amp;hl=ja&amp;center=35.6967328387065,139.7674685845403&amp;style=feature:landscape%7Celement:geometry%7Clightness:25&amp;style=feature:poi%7Celement:geometry%7Clightness:25&amp;style=feature:poi%7Celement:labels.icon%7Ccolor:0xd2d2d2&amp;style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x949499&amp;style=feature:road%7Clightness:25&amp;style=feature:road%7Celement:labels%7Csaturation:-100%7Clightness:40&amp;style=feature:transit.station.airport%7Celement:geometry%7Clightness:25&amp;style=feature:water%7Celement:geometry%7Clightness:25&amp;markers=color:red%7C35.6967328387065,139.7674685845403&amp;zoom=15&amp;size=490x145&amp;signature=ldcY1kpEOmn3-oOkryAQudUdZL8=" src="https://maps.googleapis.com/maps/api/staticmap?channel=201000006&amp;key=AIzaSyCFZGUaDWgiusOQeFpnVLT2uPM2R6Mq7J8&amp;hl=ja&amp;center=35.6967328387065,139.7674685845403&amp;style=feature:landscape%7Celement:geometry%7Clightness:25&amp;style=feature:poi%7Celement:geometry%7Clightness:25&amp;style=feature:poi%7Celement:labels.icon%7Ccolor:0xd2d2d2&amp;style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x949499&amp;style=feature:road%7Clightness:25&amp;style=feature:road%7Celement:labels%7Csaturation:-100%7Clightness:40&amp;style=feature:transit.station.airport%7Celement:geometry%7Clightness:25&amp;style=feature:water%7Celement:geometry%7Clightness:25&amp;markers=color:red%7C35.6967328387065,139.7674685845403&amp;zoom=15&amp;size=490x145&amp;signature=ldcY1kpEOmn3-oOkryAQudUdZL8=" data-was-processed="true">
+        </td>
       </tr>
       <tr>
         <td class="highlighted-cell">交通手段</td>
