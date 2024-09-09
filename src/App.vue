@@ -50,16 +50,11 @@
         <div v-if="activeMenu === '2'">
           <Seat/>
         </div>
-        <div v-if="activeMenu === '3-1'">
-          <!-- 子菜单 3-1 的内容 -->
-          <p>这是子菜单项 1 的内容。</p>
-        </div>
-        <div v-if="activeMenu === '3-2'">
-          <!-- 子菜单 3-2 的内容 -->
-          <p>这是子菜单项 2 的内容。</p>
+        <div v-if="activeMenu.startsWith('3')">
+          <Menu :default-tab="activeMenu" />
         </div>
         <div v-if="activeMenu === '4'">
-          <pic/>
+          <Pic/>
         </div>
       </div>
     </div>
@@ -72,9 +67,11 @@ import {ElMenu, ElMenuItem, ElSubMenu} from 'element-plus';
 import First from "@/page/first.vue";
 import Seat from "@/page/seat.vue";
 import Pic from "@/page/pic.vue";
+import Menu from "@/page/menu.vue";
 
 export default {
   components: {
+    Menu,
     Pic,
     Seat,
     First,
@@ -86,6 +83,7 @@ export default {
     const activeMenu = ref("1");
 
     const handleSelect = (index) => {
+      console.log("典籍里"+index);
       activeMenu.value = index;
     };
 
@@ -145,12 +143,15 @@ export default {
   align-items: center; /* 添加这一行 */
 }
 
-.custom-menu {
+:root {
   --el-menu-active-color: #797152;
   --el-menu-hover-text-color: #797152;
-  --el-menu-bg-color: #eeece4;
   --el-menu-hover-bg-color: #eeece4;
+  --el-color-primary: #797152;
+}
 
+.custom-menu {
+  --el-menu-bg-color: #eeece4;
 
   width: 80%;
   display: flex;

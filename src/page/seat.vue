@@ -65,6 +65,7 @@ export default {
 .highlighted-title {
   font-weight: bold;
   color: #333;
+  margin-bottom: 30px;
 }
 
 .image-container {
