@@ -4,12 +4,18 @@
     <div class="image-container">
       <img
           class="image"
-          src="./assets/bg-title.jpg"
+          src="./assets/bg-titlef.jpg"
           alt="示例图片"
       />
-      <div class="overlay-text">
-        多福楼 御茶ノ水店
+      <div class="overlay-content">
+        <div class="overlay-text">
+          多福楼 御茶ノ水店
+        </div>
+        <div class="overlay-com">
+          マツキヨ通商株式会社
+        </div>
       </div>
+      <div style="position: absolute; inset: 0; background-color: rgba(0,0,0,.4);"></div>
     </div>
 
     <!-- 下半部分：Menu 组件 -->
@@ -24,14 +30,16 @@
         <el-menu-item index="2">座席</el-menu-item>
         <el-sub-menu index="3">
           <template #title>メニュー・コース</template>
-          <el-menu-item index="3-1">子菜单项 1</el-menu-item>
-          <el-menu-item index="3-2">子菜单项 2</el-menu-item>
+          <el-menu-item index="3-1">料理</el-menu-item>
+          <el-menu-item index="3-2">ドリンク</el-menu-item>
+          <el-menu-item index="3-3">ランチ</el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="4">
-          <template #title>写真</template>
-          <el-menu-item index="4-1">子菜单项 1</el-menu-item>
-          <el-menu-item index="4-2">子菜单项 2</el-menu-item>
-        </el-sub-menu>
+        <!--        <el-sub-menu index="4">-->
+        <!--          <template #title>写真</template>-->
+        <!--          <el-menu-item index="4-1">子菜单项 1</el-menu-item>-->
+        <!--          <el-menu-item index="4-2">子菜单项 2</el-menu-item>-->
+        <!--        </el-sub-menu>-->
+        <el-menu-item index="4">写真</el-menu-item>
       </el-menu>
 
       <!-- 内容区域 -->
@@ -40,8 +48,7 @@
           <First/>
         </div>
         <div v-if="activeMenu === '2'">
-          <!-- 第二页面的内容 -->
-          <p>这是座席页面的内容。</p>
+          <Seat/>
         </div>
         <div v-if="activeMenu === '3-1'">
           <!-- 子菜单 3-1 的内容 -->
@@ -51,13 +58,8 @@
           <!-- 子菜单 3-2 的内容 -->
           <p>这是子菜单项 2 的内容。</p>
         </div>
-        <div v-if="activeMenu === '4-1'">
-          <!-- 子菜单 4-1 的内容 -->
-          <p>这是子菜单项 1 的内容。</p>
-        </div>
-        <div v-if="activeMenu === '4-2'">
-          <!-- 子菜单 4-2 的内容 -->
-          <p>这是子菜单项 2 的内容。</p>
+        <div v-if="activeMenu === '4'">
+          <pic/>
         </div>
       </div>
     </div>
@@ -68,9 +70,13 @@
 import {ref} from 'vue';
 import {ElMenu, ElMenuItem, ElSubMenu} from 'element-plus';
 import First from "@/page/first.vue";
+import Seat from "@/page/seat.vue";
+import Pic from "@/page/pic.vue";
 
 export default {
   components: {
+    Pic,
+    Seat,
     First,
     ElMenu,
     ElMenuItem,
@@ -110,16 +116,26 @@ export default {
   object-fit: cover;
 }
 
-.overlay-text {
+.overlay-content {
   position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translateX(-50%);
-  color: black;
-  font-size: 24px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  text-align: center;
+  inset: 0;
+  display: flex;
+  flex-direction: column; /* 竖直排列 */
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.overlay-text {
+  font-size: 5vw;
+  margin: 0;
+  color: #fff;
+}
+
+.overlay-com {
+  font-size: 2vw;
+  margin: 0;
+  color: #fff;
 }
 
 .menu-wrapper {
@@ -157,5 +173,12 @@ export default {
   width: 70%;
   display: flex;
   justify-content: space-between;
+}
+
+.divider {
+  width: 100%; /* 设置分割线的宽度 */
+  border: none;
+  border-top: 1px solid #e1e1e1; /* 设置分割线的颜色和粗细 */
+  margin: 20px auto; /* 设置上下外边距和居中 */
 }
 </style>

@@ -65,11 +65,15 @@
       </tr>
       <tr>
         <td class="highlighted-cell">予算</td>
-        <td>￥3,000～￥3,999 ～￥999</td>
+        <td><span class="icon-dinner">￥3,000～￥3,999</span>
+          ～<span class="icon-lunch">￥999</span>
+        </td>
       </tr>
       <tr>
         <td class="highlighted-cell">予算（口コミ集計）</td>
-        <td>￥3,000～￥2,999 ～￥999</td>
+        <td><span class="icon-dinner">￥3,000～￥3,999</span>
+          ～<span class="icon-lunch">￥999</span>
+        </td>
       </tr>
       <tr>
         <td class="highlighted-cell">支払い方法</td>
@@ -283,5 +287,27 @@ export default {
   background-color: #FAF8F5; /* 浅棕色背景 */
   font-weight: bold;
   color: #333;
+}
+
+.icon-lunch::before{
+  font-family: "Tabelog Glyph";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  content: "\f6e7";
+  color: #cc8131;
+}
+
+.icon-dinner::before{
+  font-family: "Tabelog Glyph";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  content: "\f6e8";
+  color: #336aa2;
 }
 </style>

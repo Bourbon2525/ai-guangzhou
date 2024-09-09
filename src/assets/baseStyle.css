@@ -3,3 +3,9 @@ body {
     "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+@font-face {
+    font-family: 'Tabelog Glyph';
+    src: url('@/assets/fonts/tabelog_glyphs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
